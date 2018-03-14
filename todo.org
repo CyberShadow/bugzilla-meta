@@ -1,4 +1,4 @@
-- [ ] Theme/content changes [0/7]
+- [ ] Theme/content changes [0/8]
   - [ ] Theme and top banner
   - [ ] Mozilla logo in top-right corner
   - [ ] http://dbugs.k3.1azy.net/createaccount.cgi
@@ -11,6 +11,10 @@
     - [ ] bugzilla.mozilla.org
     - [ ] @mozilla.org
     - [ ] www.mozilla.org (filter matches)
+    - [ ] Firefox
+    - [ ] Thunderbird
+    - [ ] moz-social-bw-rgb-1200x1200.png
+  - [ ] http://dbugs.k3.1azy.net/enter_bug.cgi?format=guided#h=product%7C
 - [-] Broken stuff
   - [X] JavaScript-less login
     - (started working by itself?)
@@ -18,3 +22,8 @@
 - [ ] Set up features
   - [ ] GitHub login
   - [ ] Reply by email
+- [ ] Data import
+  - [ ] Promote components to products
+  - [ ] Split up Phobos modules
+    - [ ] Set up owners / default assignees (using CODEOWNERS)
+  - [ ] Add components whose bugs are tracked elsewhere?
