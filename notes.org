@@ -1,3 +1,17 @@
+* Setup
+
+- Set up webserver, database, Perl, Bugzilla code (see init.sh)
+- Enable GitHub login (fixes 500 on /enter_bug.cgi when not logged in)
+  - Administration -> Parameters -> User Authentication -> user_info_class := GitHubAuth,CGI
+  - Administration -> Parameters -> User Authentication -> user_verify_class := GitHubAuth,DB
+- Configure GitHub login
+  - Administration -> Parameters -> GitHubAuth -> github_client_id := (get from https://github.com/settings/developers)
+  - Administration -> Parameters -> GitHubAuth -> github_client_secret := (get from https://github.com/settings/developers)
+- Set insidergroup (fixes 500 on /enter_bug.cgi when logged in)
+  - Administration -> Parameters -> Group Security -> insidergroup := admin
+
+* TODO
+
 - [ ] Theme/content changes [0/8]
   - [ ] Theme and top banner
   - [ ] Mozilla logo in top-right corner
