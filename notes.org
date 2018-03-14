@@ -9,16 +9,17 @@
   - Administration -> Parameters -> GitHubAuth -> github_client_secret := (get from https://github.com/settings/developers)
 - Set insidergroup (fixes 500 on /enter_bug.cgi when logged in)
   - Administration -> Parameters -> Group Security -> insidergroup := admin
+- Disable time tracking fields
+  - Administration -> Parameters -> Group Security -> timetrackinggroup := (blank)
 
 * TODO
 
-- [ ] Theme/content changes [0/8]
-  - [ ] Theme and top banner
-  - [ ] Mozilla logo in top-right corner
-  - [ ] http://dbugs.k3.1azy.net/createaccount.cgi
-    - [ ] Main body
-    - [ ] Email at the bottom
-  - [ ] Fix 403 on http://dbugs.k3.1azy.net/docs/en/html/
+- [-] Theme/content changes [3/7]
+  - [X] Theme and top banner
+  - [X] Mozilla logo in top-right corner
+  - [X] http://dbugs.k3.1azy.net/createaccount.cgi
+    - [X] Main body
+    - [X] Email at the bottom
   - [ ] http://dbugs.k3.1azy.net/query.cgi?format=google
   - [ ] URL on http://dbugs.k3.1azy.net/enter_bug.cgi
   - [ ] Search terms
@@ -33,6 +34,8 @@
   - [X] JavaScript-less login
     - (started working by itself?)
   - [ ] link on js-less http://dbugs.k3.1azy.net/enter_bug.cgi?format=guided
+  - [X] Fix 403/404 on http://dbugs.k3.1azy.net/docs/en/html/
+    - [X] Linked to from header menu
 - [ ] Set up features
   - [ ] GitHub login
   - [ ] Reply by email

@@ -11,6 +11,7 @@ case $DISTRIB_ID in
 			mariadb
 			libmariadbclient # provides mysql_config, needed by DBD::mysql
 			patchutils # "difference between two patches"
+			python-sphynx # to build HTML docs
 		)
 		missing=($(comm -23 <(printf '%s\n' "${packages[@]}" | sort) <(pacman -Qq | sort)))
 		[[ ${#missing[@]} -eq 0 ]] || sudo pacman -S "${missing[@]}"
@@ -66,6 +67,10 @@ EOF
 	)
 	touch .configured
 fi
+
+# Build documentation
+
+test -d src/docs/en/html || make -C src/docs/en html
 
 # Start Apache
 
