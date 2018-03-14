@@ -1,0 +1,20 @@
+- [ ] Theme/content changes [0/7]
+  - [ ] Theme and top banner
+  - [ ] Mozilla logo in top-right corner
+  - [ ] http://dbugs.k3.1azy.net/createaccount.cgi
+    - [ ] Main body
+    - [ ] Email at the bottom
+  - [ ] Fix 403 on http://dbugs.k3.1azy.net/docs/en/html/
+  - [ ] http://dbugs.k3.1azy.net/query.cgi?format=google
+  - [ ] URL on http://dbugs.k3.1azy.net/enter_bug.cgi
+  - [ ] Search terms
+    - [ ] bugzilla.mozilla.org
+    - [ ] @mozilla.org
+    - [ ] www.mozilla.org (filter matches)
+- [-] Broken stuff
+  - [X] JavaScript-less login
+    - (started working by itself?)
+  - [ ] link on js-less http://dbugs.k3.1azy.net/enter_bug.cgi?format=guided
+- [ ] Set up features
+  - [ ] GitHub login
+  - [ ] Reply by email
