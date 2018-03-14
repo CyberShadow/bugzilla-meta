@@ -1,3 +1,4 @@
 /src/
 /mysql/
 /.configured
+/apache2/httpd.pid

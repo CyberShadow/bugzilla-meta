@@ -40,8 +40,9 @@ test -d src || git clone --branch=dlang https://github.com/CyberShadow/bmo src
 test -f src/local/lib/perl5/local/lib.pm || cpanm --local-lib=src/local local::lib
 
 # Set up perl environment
-eval $(perl -I src/local/lib/perl5/ -Mlocal::lib=src/local)
+eval "$(perl -I src/local/lib/perl5/ -Mlocal::lib=src/local)"
 
+# Configure Bugzilla
 if [[ ! -f .configured ]]
 then
 	(
@@ -66,7 +67,18 @@ EOF
 	touch .configured
 fi
 
-# (
-# 	cd src
-# 	./checksetup.pl
-# )
+# Start Apache
+
+if ! [[ -f apache2/httpd.pid && -d "/proc/$(cat apache2/httpd.pid)" && "$(readlink "/proc/$(cat apache2/httpd.pid)/exe")" == "$(realpath "$(command -v httpd)")" ]]
+then
+	${TERMINAL-xterm} -e httpd -f "$PWD/apache2/httpd.conf" -X  &
+	sleep 1
+fi
+
+# Check web server
+( cd src ; ./testserver.pl http://127.0.0.1:8001/ )
+
+# Done
+printf '\n\n'
+printf 'All set up! Go to http://127.0.0.1:8001/ to access Bugzilla.\n'
+printf 'You can log in with dbugs@example.com / bzJ4GXaL58\n'
