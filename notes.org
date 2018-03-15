@@ -1,38 +1,29 @@
 * Setup
 
 - Set up webserver, database, Perl, Bugzilla code (see init.sh)
-- Enable GitHub login (fixes 500 on /enter_bug.cgi when not logged in)
-  - Administration -> Parameters -> User Authentication -> user_info_class := GitHubAuth,CGI
-  - Administration -> Parameters -> User Authentication -> user_verify_class := GitHubAuth,DB
-- Configure GitHub login
-  - Administration -> Parameters -> GitHubAuth -> github_client_id := (get from https://github.com/settings/developers)
-  - Administration -> Parameters -> GitHubAuth -> github_client_secret := (get from https://github.com/settings/developers)
-- Set insidergroup (fixes 500 on /enter_bug.cgi when logged in)
-  - Administration -> Parameters -> Group Security -> insidergroup := admin
-- Disable time tracking fields
-  - Administration -> Parameters -> Group Security -> timetrackinggroup := (blank)
-- Set docs URL
-  - data/params: 'docs_urlbase' => 'https://bmo.readthedocs.io/%lang%/latest/',
 
 * TODO
 
-- [-] Theme/content changes [3/8]
+- [-] Theme/content changes [4/9]
   - [X] Theme and top banner
   - [X] Mozilla logo in top-right corner
   - [X] http://dbugs.k3.1azy.net/createaccount.cgi
     - [X] Main body
     - [X] Email at the bottom
-  - [ ] Fix 403 on http://dbugs.k3.1azy.net/docs/en/html/
+  - [X] Fix 403 on http://dbugs.k3.1azy.net/docs/en/html/
   - [ ] http://dbugs.k3.1azy.net/query.cgi?format=google
-  - [ ] URL on http://dbugs.k3.1azy.net/enter_bug.cgi
-  - [ ] Search terms
-    - [ ] bugzilla.mozilla.org
-    - [ ] @mozilla.org
+  - [ ] http://dbugs.k3.1azy.net/enter_bug.cgi
+  - [-] Search terms
+    - [X] bugzilla.mozilla.org
+    - [X] @mozilla.org
     - [ ] www.mozilla.org (filter matches)
     - [ ] Firefox
     - [ ] Thunderbird
     - [ ] moz-social-bw-rgb-1200x1200.png
   - [ ] http://dbugs.k3.1azy.net/enter_bug.cgi?format=guided#h=product%7C
+  - [ ] http://localhost:8001/enter_bug.cgi
+    - [ ] Remove "Mentors"
+    - [ ] Remove "Security"
 - [-] Broken stuff
   - [X] JavaScript-less login
     - (started working by itself?)

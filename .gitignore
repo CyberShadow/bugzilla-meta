@@ -2,3 +2,5 @@
 /mysql/
 /.configured
 /apache2/httpd.pid
+/secrets.sh
+/old/
