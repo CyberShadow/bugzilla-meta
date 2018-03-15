@@ -57,7 +57,7 @@ then
 \$answer{'db_user'}   = 'root';
 \$answer{'db_pass'}   = '';
 
-\$answer{'urlbase'} = 'http://localhost/';
+\$answer{'urlbase'} = 'http://localhost:8001/';
 
 \$answer{'ADMIN_EMAIL'} = 'dbugs@example.com';
 \$answer{'ADMIN_PASSWORD'} = 'bzJ4GXaL58';
