@@ -11,15 +11,18 @@
   - Administration -> Parameters -> Group Security -> insidergroup := admin
 - Disable time tracking fields
   - Administration -> Parameters -> Group Security -> timetrackinggroup := (blank)
+- Set docs URL
+  - data/params: 'docs_urlbase' => 'https://bmo.readthedocs.io/%lang%/latest/',
 
 * TODO
 
-- [-] Theme/content changes [3/7]
+- [-] Theme/content changes [3/8]
   - [X] Theme and top banner
   - [X] Mozilla logo in top-right corner
   - [X] http://dbugs.k3.1azy.net/createaccount.cgi
     - [X] Main body
     - [X] Email at the bottom
+  - [ ] Fix 403 on http://dbugs.k3.1azy.net/docs/en/html/
   - [ ] http://dbugs.k3.1azy.net/query.cgi?format=google
   - [ ] URL on http://dbugs.k3.1azy.net/enter_bug.cgi
   - [ ] Search terms
