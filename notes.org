@@ -33,8 +33,14 @@
 - [ ] Set up features
   - [ ] GitHub login
   - [ ] Reply by email
+  - [ ] Voting
+  - [ ] Milestones?
 - [ ] Data import
   - [ ] Promote components to products
   - [ ] Split up Phobos modules
     - [ ] Set up owners / default assignees (using CODEOWNERS)
   - [ ] Add components whose bugs are tracked elsewhere?
+- [ ] Upstream
+  - [ ] Generate error pages ([[orgit-rev:~/work/extern/D/bugzilla/src/::3b55a0bb2][3b55a0bb20877c6114a6cfc8e82ec7ff03fcdd34]])
+  - [ ] $product->default_platform ( [[orgit-rev:~/work/extern/D/bugzilla/src/::ebb69c021][~/work/extern/D/bugzilla/src/ (magit-rev ebb69c021)]] )
+  - [ ] BugModal/TrackingFlags ( [[orgit-rev:~/work/extern/D/bugzilla/src/::3a17090ea][~/work/extern/D/bugzilla/src/ (magit-rev 3a17090ea)]] )
