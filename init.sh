@@ -73,6 +73,7 @@ cat > $src_dir/data/params <<EOF
            'insidergroup' => 'admin', # fixes 500 on /enter_bug.cgi when logged in
            'timetrackinggroup' => '', # Disable time tracking fields
            'docs_urlbase' => 'https://bmo.readthedocs.io/%lang%/latest/',
+           'utf8' => 1,
          );
 EOF
 
