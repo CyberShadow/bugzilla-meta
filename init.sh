@@ -64,7 +64,17 @@ eval "$(perl -I $src_dir/local/lib/perl5/ -Mlocal::lib=$src_dir/local)"
 
 # Create initial parameters
 mkdir -p $src_dir/data
-cat > $src_dir/data/params <<EOF
+if [[ ! -f $src_dir/data/params ]]
+then
+	if [[ -f .configured ]]
+	then
+		# The params file got deleted for some reason - we must reconfigure
+		echo 'Configured previously but params file gone - reconfiguring, but consider starting from scratch'
+		read -rp 'Press Enter to continue... '
+		rm .configured
+	fi
+
+	cat > $src_dir/data/params <<EOF
 %param = (
            'user_info_class' => 'GitHubAuth,CGI',
            'user_verify_class' => 'GitHubAuth,DB',
@@ -76,6 +86,7 @@ cat > $src_dir/data/params <<EOF
            'utf8' => 1,
          );
 EOF
+fi
 
 # Configure Bugzilla
 if [[ ! -f .configured ]]
