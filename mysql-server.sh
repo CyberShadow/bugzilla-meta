@@ -8,4 +8,9 @@ echo 'MySQL server - Press Ctrl+\ to stop gracefully'
 echo '=============================================='
 echo ''
 
-mysqld --datadir=./mysql --socket=./mysql.sock --skip-networking --skip-log-bin
+mysqld \
+	--datadir=./mysql \
+	--socket=./mysql.sock \
+	--skip-networking \
+	--general-log \
+	--skip-log-bin
