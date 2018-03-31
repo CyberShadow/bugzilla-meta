@@ -88,6 +88,8 @@ then
 EOF
 fi
 
+meta=$PWD # path to this directory
+
 # Configure Bugzilla
 if [[ ! -f .configured ]]
 then
@@ -114,7 +116,7 @@ EOF
 \$answer{'webservergroup'} = '';
 \$answer{'db_driver'} = 'mysql';
 \$answer{'db_host'}   = '';
-\$answer{'db_sock'}   = '$PWD/../mysql/mysql.sock';
+\$answer{'db_sock'}   = '$meta/mysql/mysql.sock';
 \$answer{'db_port'}   = 0;
 \$answer{'db_name'}   = 'dbugs';
 \$answer{'db_user'}   = 'root';
@@ -127,6 +129,8 @@ EOF
 \$answer{'ADMIN_REALNAME'} = '$admin_realname';
 EOF
 		fi
+
+		"$meta"/generate_dlang_data.pl
 	)
 	touch .configured
 fi
