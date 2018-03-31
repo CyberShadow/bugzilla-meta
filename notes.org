@@ -30,6 +30,8 @@
   - [ ] link on js-less http://dbugs.k3.1azy.net/enter_bug.cgi?format=guided
   - [X] Fix 403/404 on http://dbugs.k3.1azy.net/docs/en/html/
     - [X] Linked to from header menu
+  - [X] error on test instance
+    [Fri Mar 16 02:08:17.916841 2018] [:error] [pid 7411] Can't locate object method "bug_mentor" via package "Bugzilla::Bug" at /home/dbugs/www/Bugzilla/BugMail.pm line 606.\n
 - [ ] Set up features
   - [ ] GitHub login
   - [ ] Reply by email
@@ -37,10 +39,14 @@
   - [ ] Milestones?
 - [ ] Data import
   - [ ] Promote components to products
-  - [ ] Split up Phobos modules
-    - [ ] Set up owners / default assignees (using CODEOWNERS)
-  - [ ] Add components whose bugs are tracked elsewhere?
-- [ ] Upstream
-  - [ ] Generate error pages ([[orgit-rev:~/work/extern/D/bugzilla/src/::3b55a0bb2][3b55a0bb20877c6114a6cfc8e82ec7ff03fcdd34]])
-  - [ ] $product->default_platform ( [[orgit-rev:~/work/extern/D/bugzilla/src/::ebb69c021][~/work/extern/D/bugzilla/src/ (magit-rev ebb69c021)]] )
-  - [ ] BugModal/TrackingFlags ( [[orgit-rev:~/work/extern/D/bugzilla/src/::3a17090ea][~/work/extern/D/bugzilla/src/ (magit-rev 3a17090ea)]] )
+  - [ ] Finer-grained components
+    - [ ] Phobos modules
+      - [ ] Set up owners / default assignees (using CODEOWNERS)
+    - [ ] dlang.org sub-sites
+    - [ ] Add components whose bugs are tracked elsewhere?
+      - [ ] DustMite
+      - [ ] *.dlang.org
+- [X] Upstream
+  - [X] Generate error pages ([[orgit-rev:~/work/extern/D/bugzilla/src/::3b55a0bb2][3b55a0bb20877c6114a6cfc8e82ec7ff03fcdd34]])
+  - [X] $product->default_platform ( [[orgit-rev:~/work/extern/D/bugzilla/src/::ebb69c021][~/work/extern/D/bugzilla/src/ (magit-rev ebb69c021)]] )
+  - [X] BugModal/TrackingFlags ( [[orgit-rev:~/work/extern/D/bugzilla/src/::3a17090ea][~/work/extern/D/bugzilla/src/ (magit-rev 3a17090ea)]] )
