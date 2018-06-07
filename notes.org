@@ -4,19 +4,20 @@
 
 * TODO
 
-- [-] Theme/content changes [4/9]
+- [-] Theme/content changes [5/10]
   - [X] Theme and top banner
   - [X] Mozilla logo in top-right corner
   - [X] http://dbugs.k3.1azy.net/createaccount.cgi
     - [X] Main body
     - [X] Email at the bottom
   - [X] Fix 403 on http://dbugs.k3.1azy.net/docs/en/html/
-  - [ ] http://dbugs.k3.1azy.net/query.cgi?format=google
+  - [X] http://dbugs.k3.1azy.net/query.cgi?format=google
   - [ ] http://dbugs.k3.1azy.net/enter_bug.cgi
   - [-] Search terms
     - [X] bugzilla.mozilla.org
     - [X] @mozilla.org
     - [ ] www.mozilla.org (filter matches)
+    - [ ] wiki.mozilla.org
     - [ ] Firefox
     - [ ] Thunderbird
     - [ ] moz-social-bw-rgb-1200x1200.png
@@ -24,19 +25,27 @@
   - [ ] http://localhost:8001/enter_bug.cgi
     - [ ] Remove "Mentors"
     - [ ] Remove "Security"
+  - [ ] Guided bug entry
+    - [ ] Decide if we want to use format=guided or GuidedBugEntry
+    - [ ] format=guided
+      - [ ] Branding
 - [-] Broken stuff
   - [X] JavaScript-less login
     - (started working by itself?)
-  - [ ] link on js-less http://dbugs.k3.1azy.net/enter_bug.cgi?format=guided
   - [X] Fix 403/404 on http://dbugs.k3.1azy.net/docs/en/html/
     - [X] Linked to from header menu
   - [X] error on test instance
     [Fri Mar 16 02:08:17.916841 2018] [:error] [pid 7411] Can't locate object method "bug_mentor" via package "Bugzilla::Bug" at /home/dbugs/www/Bugzilla/BugMail.pm line 606.\n
-- [ ] Set up features
-  - [ ] GitHub login
+  - [-] Instant search
+    - [X] Not working at all
+    - [ ] Not working when logged in - https://bugzilla.mozilla.org/show_bug.cgi?id=1450920 (BMO bug)
+    - [X] Broken icon (wants GuidedBugEntry)
+- [-] Set up features
+  - [X] GitHub login
   - [ ] Reply by email
   - [ ] Voting
   - [ ] Milestones?
+  - [ ] Markdown? Only in Bugzilla master, not BMO or Bugzilla 5.0
 - [ ] Data import
   - [ ] Promote components to products
   - [ ] Finer-grained components
@@ -46,7 +55,7 @@
     - [ ] Add components whose bugs are tracked elsewhere?
       - [ ] DustMite
       - [ ] *.dlang.org
-- [X] Upstream
+- [X] Upstream our patches
   - [X] Generate error pages ([[orgit-rev:~/work/extern/D/bugzilla/src/::3b55a0bb2][3b55a0bb20877c6114a6cfc8e82ec7ff03fcdd34]])
   - [X] $product->default_platform ( [[orgit-rev:~/work/extern/D/bugzilla/src/::ebb69c021][~/work/extern/D/bugzilla/src/ (magit-rev ebb69c021)]] )
   - [X] BugModal/TrackingFlags ( [[orgit-rev:~/work/extern/D/bugzilla/src/::3a17090ea][~/work/extern/D/bugzilla/src/ (magit-rev 3a17090ea)]] )
