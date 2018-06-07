@@ -11,6 +11,7 @@ then
 	db_user=dbugs
 	# db_pass=abcdefghij
 else
+	listen_addr=127.0.0.1
 	port=8001
 fi
 

@@ -145,7 +145,7 @@ then
 ServerName 127.0.0.1
 ServerAdmin root@localhost
 PidFile \${PWD}/apache2/httpd.pid
-Listen 127.0.0.1:$port
+Listen ${listen_addr}${listen_addr:+:}${port}
 
 LoadModule access_compat_module modules/mod_access_compat.so
 LoadModule alias_module modules/mod_alias.so
