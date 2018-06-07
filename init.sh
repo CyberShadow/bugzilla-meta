@@ -62,6 +62,9 @@ test -f $src_dir/local/lib/perl5/local/lib.pm || cpanm --local-lib=$src_dir/loca
 # Set up perl environment
 eval "$(perl -I $src_dir/local/lib/perl5/ -Mlocal::lib=$src_dir/local)"
 
+# Install checksetup dependencies
+test -d $src_dir/local/lib/perl5/ExtUtils/MakeMaker || cpanm ExtUtils::MakeMaker
+
 # Create initial parameters
 mkdir -p $src_dir/data
 if [[ ! -f $src_dir/data/params ]]
