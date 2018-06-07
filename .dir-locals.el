@@ -2,4 +2,5 @@
   (web-mode-markup-indent-offset . 2)
   (indent-tabs-mode . nil)
   (smart-tabs-mode . nil)
+  (bug-reference-url-format . "https://bugzilla.mozilla.org/show_bug.cgi?id=%s")
   ))
