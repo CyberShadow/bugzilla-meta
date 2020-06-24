@@ -142,7 +142,11 @@ fi
 
 if ! $production
 then
-	${TERMINAL-xterm} -e "$src_dir/bugzilla.pl" daemon -l "http://${listen_addr:-*}:${port}" &
+	(
+		cd "$src_dir"
+		${TERMINAL-xterm} -e "./bugzilla.pl" daemon -l "http://${listen_addr:-*}:${port}" &
+	)
+	sleep 1
 fi
 
 # Check web server
