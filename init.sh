@@ -142,73 +142,7 @@ fi
 
 if ! $production
 then
-	if ! [[ -f apache2/httpd.pid && -d "/proc/$(cat apache2/httpd.pid)" && "$(readlink "/proc/$(cat apache2/httpd.pid)/exe")" == "$(realpath "$(command -v httpd)")" ]]
-	then
-		cat > apache2/httpd.conf <<EOF
-ServerName 127.0.0.1
-ServerAdmin root@localhost
-PidFile \${PWD}/apache2/httpd.pid
-Listen ${listen_addr}${listen_addr:+:}${port}
-
-LoadModule access_compat_module modules/mod_access_compat.so
-LoadModule alias_module modules/mod_alias.so
-LoadModule authn_core_module modules/mod_authn_core.so
-LoadModule authz_core_module modules/mod_authz_core.so
-LoadModule authz_host_module modules/mod_authz_host.so
-LoadModule authz_user_module modules/mod_authz_user.so
-# LoadModule autoindex_module modules/mod_autoindex.so
-LoadModule cgi_module modules/mod_cgi.so
-LoadModule dir_module modules/mod_dir.so
-LoadModule headers_module modules/mod_headers.so
-LoadModule log_config_module modules/mod_log_config.so
-LoadModule mime_module modules/mod_mime.so
-LoadModule unixd_module modules/mod_unixd.so
-LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
-LoadModule remoteip_module modules/mod_remoteip.so
-LoadModule rewrite_module modules/mod_rewrite.so
-
-UseCanonicalName Off
-<Directory />
-    Options FollowSymLinks
-    AllowOverride None
-</Directory>
-# AccessFileName .htaccess
-<Files ~ "^\.ht">
-    Order allow,deny
-    Deny from all
-    Satisfy All
-</Files>
-TypesConfig /etc/mime.types
-DefaultType text/plain
-# MIMEMagicFile conf/magic
-HostnameLookups Off
-ErrorLog /dev/stderr
-TransferLog /dev/stdout
-LogLevel warn
-ServerSignature Off
-AddDefaultCharset UTF-8
-
-# Include /app/conf/env.conf
-
-# PerlSwitches -wT
-# PerlRequire /app/mod_perl.pl
-DirectoryIndex index.cgi
-DocumentRoot "\${PWD}/src"
-<Directory "\${PWD}/src">
-    AddHandler cgi-script .cgi
-    Options +ExecCGI
-
-    #Options -Indexes -FollowSymLinks
-    Options -Indexes
-    AllowOverride Limit FileInfo Indexes
-    Order allow,deny
-    Allow from all
-</Directory>
-EOF
-
-		${TERMINAL-xterm} -e httpd -f "$PWD/apache2/httpd.conf" -X  &
-		sleep 1
-	fi
+	${TERMINAL-xterm} -e "$src_dir/bugzilla.pl" daemon -l "http://${listen_addr:-*}:${port}" &
 fi
 
 # Check web server
