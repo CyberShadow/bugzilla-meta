@@ -59,3 +59,13 @@
   - [X] Generate error pages ([[orgit-rev:~/work/extern/D/bugzilla/src/::3b55a0bb2][3b55a0bb20877c6114a6cfc8e82ec7ff03fcdd34]])
   - [X] $product->default_platform ( [[orgit-rev:~/work/extern/D/bugzilla/src/::ebb69c021][~/work/extern/D/bugzilla/src/ (magit-rev ebb69c021)]] )
   - [X] BugModal/TrackingFlags ( [[orgit-rev:~/work/extern/D/bugzilla/src/::3a17090ea][~/work/extern/D/bugzilla/src/ (magit-rev 3a17090ea)]] )
+- [-] Rebase:
+  - [-] Gone / doesn't apply any more:
+    - [X] 2f8c30c06 * .htaccess: Enable error pages even when running under CGI
+    - [ ] e788bd180 * Update issue writing guidelines links
+    - [X] ef8325ed7 * extensions/Push/lib/Logger.pm: Don't pull in Apache2::Log until necessary
+
+* Tue 2020-06-23 23:15:04
+
+- Commit 89750e8205e6c178e83786cded14e89e58640bab (reformat everything) used Perl-Tidy 20180220
+- Base commit on unstable for reformatting: c480ce865ba8f9671548b431afa19fd720422387
