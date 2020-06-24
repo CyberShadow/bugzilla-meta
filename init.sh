@@ -26,7 +26,7 @@ case $DISTRIB_ID in
 		packages=(
 			cpanminus
 			mariadb
-			libmariadbclient # provides mysql_config, needed by DBD::mysql
+			mariadb-libs # provides mysql_config, needed by DBD::mysql
 			patchutils # "difference between two patches"
 		)
 		missing=($(comm -23 <(printf '%s\n' "${packages[@]}" | sort) <(pacman -Qq | sort)))
@@ -50,7 +50,7 @@ then
 	test -e mysql/mysql.sock || ( ${TERMINAL-xterm} -e ./mysql-server.sh & sleep 1 )
 
 	# Create database
-	test -d mysql/dbugs || mysql --socket=mysql/mysql.sock --user=root <<<'CREATE DATABASE dbugs;'
+	test -d mysql/dbugs || mysql --socket=mysql/mysql.sock <<<'CREATE DATABASE dbugs;'
 fi
 
 # Get code
@@ -122,7 +122,7 @@ EOF
 \$answer{'db_sock'}   = '$meta/mysql/mysql.sock';
 \$answer{'db_port'}   = 0;
 \$answer{'db_name'}   = 'dbugs';
-\$answer{'db_user'}   = 'root';
+\$answer{'db_user'}   = '$USER';
 \$answer{'db_pass'}   = '';
 
 \$answer{'urlbase'} = '$urlbase';
