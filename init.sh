@@ -109,6 +109,7 @@ then
 \$answer{'db_pass'}   = '$db_pass';
 
 \$answer{'urlbase'} = '$urlbase';
+\$answer{'canonical_urlbase'} = 'https://issues.dlang.org/';
 
 \$answer{'ADMIN_EMAIL'} = '$admin_email';
 \$answer{'ADMIN_PASSWORD'} = '$admin_password';
@@ -126,6 +127,7 @@ EOF
 \$answer{'db_pass'}   = '';
 
 \$answer{'urlbase'} = '$urlbase';
+\$answer{'canonical_urlbase'} = 'https://issues.dlang.org/';
 
 \$answer{'ADMIN_EMAIL'} = '$admin_email';
 \$answer{'ADMIN_PASSWORD'} = '$admin_password';
