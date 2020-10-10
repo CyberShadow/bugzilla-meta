@@ -140,13 +140,13 @@ EOF
 	touch .configured
 fi
 
-# Start Apache
+# Start web server
 
 if ! $production
 then
 	(
 		cd "$src_dir"
-		${TERMINAL-xterm} -e "./bugzilla.pl" daemon -l "http://${listen_addr:-*}:${port}" &
+		MOJO_LISTEN="http://${listen_addr:-*}:${port}" ${TERMINAL-xterm} -e "./scripts/start_morbo" &
 	)
 	sleep 1
 fi
