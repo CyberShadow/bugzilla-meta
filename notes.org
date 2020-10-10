@@ -4,7 +4,7 @@
 
 * TODO
 
-- [-] Theme/content changes [5/10]
+- [-] Theme/content changes [6/10]
   - [X] Theme and top banner
   - [X] Mozilla logo in top-right corner
   - [X] http://dbugs.k3.1azy.net/createaccount.cgi
@@ -16,15 +16,15 @@
   - [-] Search terms
     - [X] bugzilla.mozilla.org
     - [X] @mozilla.org
-    - [ ] www.mozilla.org (filter matches)
+    - [X] www.mozilla.org (filter matches)
     - [ ] wiki.mozilla.org
     - [ ] Firefox
     - [ ] Thunderbird
     - [ ] moz-social-bw-rgb-1200x1200.png
   - [ ] http://dbugs.k3.1azy.net/enter_bug.cgi?format=guided#h=product%7C
-  - [ ] http://localhost:8001/enter_bug.cgi
-    - [ ] Remove "Mentors"
-    - [ ] Remove "Security"
+  - [X] http://localhost:8001/enter_bug.cgi
+    - [X] Remove "Mentors"
+    - [X] Remove "Security"
   - [ ] Guided bug entry
     - [ ] Decide if we want to use format=guided or GuidedBugEntry
     - [ ] format=guided
@@ -36,10 +36,13 @@
     - [X] Linked to from header menu
   - [X] error on test instance
     [Fri Mar 16 02:08:17.916841 2018] [:error] [pid 7411] Can't locate object method "bug_mentor" via package "Bugzilla::Bug" at /home/dbugs/www/Bugzilla/BugMail.pm line 606.\n
-  - [-] Instant search
+  - [X] Instant search
     - [X] Not working at all
-    - [ ] Not working when logged in - https://bugzilla.mozilla.org/show_bug.cgi?id=1450920 (BMO bug)
+    - [X] Not working when logged in - https://bugzilla.mozilla.org/show_bug.cgi?id=1450920 (BMO bug)
     - [X] Broken icon (wants GuidedBugEntry)
+  - [ ] Broken links:
+    - [ ] custom_forms.html
+    - [ ] etiquette.html
 - [-] Set up features
   - [X] GitHub login
   - [ ] Reply by email
@@ -69,3 +72,31 @@
 
 - Commit 89750e8205e6c178e83786cded14e89e58640bab (reformat everything) used Perl-Tidy 20180220
 - Base commit on unstable for reformatting: c480ce865ba8f9671548b431afa19fd720422387
+
+* Sat 2020-10-03 00:25:55
+
+- [-] TODO:
+  - [X] figure out if 001compile.t is at all useful
+  - [X] rebase on harmony/master
+    - [X] rebase dlang, but then reset testsuite-fixes
+      - testsuite-fixes starts at "Bug 1446236 - use urlbase in AntiSpam extension"
+  - [-] The re-upstreaming
+    - [X] Redo customize-nobody to use localsetting instead of param
+    - [-] add Bugzilla->urlbase method that returns a URI object
+      - [X] Resubmit
+        - Dylan's PR: https://github.com/bugzilla/harmony/pull/25
+      - [ ] Bug 1446236 - Generate static error pages ::
+      - [ ] search-google.html.tmpl: Calculate sitesearch from urlbase (#20)
+    - [-] Bug 1446236 - Add & use simpler method to check if an extension is present (#35) :: group with dependants
+      - [X] Review the discarded hunks (see the current have-extension branch)
+      - [X] Test with some dependents
+      - [X] Resubmit
+      - [ ] Bug 1446236 - Bugzilla/Search.pm: Use Bugzilla::Extension::TrackingFlags only when present :: use has_extension
+      - [ ] Bug 1446236 - BugModal: Use TrackingFlags only when present :: use has_extension
+      - [ ] enter_bug: Fix hard BMO dependency (#29) :: 
+      - [ ] Bug 1446236 - Fix instant search without GuidedBugEntry (#38) ::
+      - [ ] BugmailFilter: Divorce from TrackingFlags extension ::
+      - [ ] BugmailFilter: Divorce from Review extension ::
+        - group with this:
+        - [ ] BugmailFilter: Calculate FILTER_RELATIONSHIPS lazily :: 
+      - [ ] Bugzilla::User: Divorce from Review extension :: 
