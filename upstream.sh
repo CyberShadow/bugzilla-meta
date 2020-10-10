@@ -21,3 +21,5 @@ done
 prove t
 git push --force-with-lease dlang "$branch"
 xdg-open "https://github.com/bugzilla/harmony/compare/master...CyberShadow:$branch?expand=1"
+
+git checkout dlang
