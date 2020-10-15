@@ -4,10 +4,11 @@ admin_email=dbugs@example.com
 admin_realname=Administrator
 admin_password=bzJ4GXaL58
 
+db_name=dbugs
+
 if $production
 then
 	urlbase=https://issues.dlang.org/
-	db_name=dbugs
 	db_user=dbugs
 	# db_pass=abcdefghij
 else

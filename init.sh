@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck disable=SC2016
 set -euo pipefail
 
 # Load configuration
@@ -50,7 +51,20 @@ then
 	test -e mysql/mysql.sock || ( ${TERMINAL-xterm} -e ./mysql-server.sh & sleep 1 )
 
 	# Create database
-	test -d mysql/dbugs || mysql --socket=mysql/mysql.sock <<<'CREATE DATABASE dbugs;'
+	test -d mysql/"$db_name" || {
+		if [[ -d import-db ]]
+		then
+			printf 'Importing database...\n' 1>&2
+			{
+				printf 'CREATE DATABASE `%s`;\n' "$db_name"
+				printf 'USE             `%s`;\n' "$db_name"
+				< import-db/bugzilla.sql.gz gzip -d | grep -ave '^CREATE DATABASE' -e '^USE '
+			}
+		else
+			printf 'Creating database...\n' 1>&2
+			printf 'CREATE DATABASE `%s`;\n' "$db_name"
+		fi | mysql --socket=mysql/mysql.sock
+	}
 fi
 
 # Get code
@@ -114,6 +128,8 @@ then
 \$answer{'ADMIN_EMAIL'} = '$admin_email';
 \$answer{'ADMIN_PASSWORD'} = '$admin_password';
 \$answer{'ADMIN_REALNAME'} = '$admin_realname';
+
+\$answer{'NO_PAUSE'} = 1;
 EOF
 		else
 			./checksetup.pl --cpanm='all notest -oracle -pg -mod_perl' --default-localconfig /dev/stdin <<EOF
@@ -122,7 +138,7 @@ EOF
 \$answer{'db_host'}   = '';
 \$answer{'db_sock'}   = '$meta/mysql/mysql.sock';
 \$answer{'db_port'}   = 0;
-\$answer{'db_name'}   = 'dbugs';
+\$answer{'db_name'}   = '$db_name';
 \$answer{'db_user'}   = '$USER';
 \$answer{'db_pass'}   = '';
 
@@ -132,6 +148,8 @@ EOF
 \$answer{'ADMIN_EMAIL'} = '$admin_email';
 \$answer{'ADMIN_PASSWORD'} = '$admin_password';
 \$answer{'ADMIN_REALNAME'} = '$admin_realname';
+
+\$answer{'NO_PAUSE'} = 1;
 EOF
 		fi
 
