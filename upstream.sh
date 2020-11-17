@@ -6,7 +6,11 @@ set -eEuo pipefail
 
 branch=$1
 shift
-commits=("$@")
+commits=()
+for commit in "$@"
+do
+	commits+=("$(git -C src rev-parse "$commit")")
+done
 
 cd src
 
