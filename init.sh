@@ -100,6 +100,7 @@ then
            'insidergroup' => 'admin', # fixes 500 on /enter_bug.cgi when logged in
            'timetrackinggroup' => '', # Disable time tracking fields
            'docs_urlbase' => 'https://bmo.readthedocs.io/%lang%/latest/',
+           'mailfrom' => '$admin_email',
            'utf8' => 1,
          );
 EOF
