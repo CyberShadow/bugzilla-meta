@@ -4,7 +4,7 @@
 
 * TODO
 
-- [-] Theme/content changes [6/10]
+- [-] Theme/content changes [6/9]
   - [X] Theme and top banner
   - [X] Mozilla logo in top-right corner
   - [X] http://dbugs.k3.1azy.net/createaccount.cgi
@@ -12,15 +12,21 @@
     - [X] Email at the bottom
   - [X] Fix 403 on http://dbugs.k3.1azy.net/docs/en/html/
   - [X] http://dbugs.k3.1azy.net/query.cgi?format=google
-  - [ ] http://dbugs.k3.1azy.net/enter_bug.cgi
-  - [-] Search terms
-    - [X] bugzilla.mozilla.org
-    - [X] @mozilla.org
-    - [X] www.mozilla.org (filter matches)
-    - [ ] wiki.mozilla.org
-    - [ ] Firefox
-    - [ ] Thunderbird
-    - [ ] moz-social-bw-rgb-1200x1200.png
+  - (x) http://dbugs.k3.1azy.net/enter_bug.cgi (?)
+  - [-] Mozilla references and BMO-specific stuff
+    - [X] See [todo] commits
+    - [-] Search terms
+      - [X] bugzilla.mozilla.org
+      - [X] @mozilla.org
+      - [X] www.mozilla.org (filter matches)
+      - [-] wiki.mozilla.org
+        - [X] (other)
+        - [ ] https://wiki.mozilla.org/BMO/... (needs decision)
+      - [X] Firefox
+      - [X] Thunderbird
+      - [X] moz-social-bw-rgb-1200x1200.png
+    - [X] /page.cgi?id=quicksearch.html
+      - [X] wiki.m.o etc.
   - [ ] http://dbugs.k3.1azy.net/enter_bug.cgi?format=guided#h=product%7C
   - [X] http://localhost:8001/enter_bug.cgi
     - [X] Remove "Mentors"
@@ -40,9 +46,11 @@
     - [X] Not working at all
     - [X] Not working when logged in - https://bugzilla.mozilla.org/show_bug.cgi?id=1450920 (BMO bug)
     - [X] Broken icon (wants GuidedBugEntry)
-  - [ ] Broken links:
+  - [-] Broken links:
     - [ ] custom_forms.html
-    - [ ] etiquette.html
+    - [X] etiquette.html
+  - [ ] show_usermenu
+  - [ ] passwords are reset (missing secret/salt?)
 - [-] Set up features
   - [X] GitHub login
   - [ ] Reply by email
