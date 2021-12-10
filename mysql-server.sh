@@ -12,5 +12,6 @@ mysqld \
 	--datadir=./mysql \
 	--socket=./mysql.sock \
 	--skip-networking \
+	--skip-innodb-read-only-compressed \
 	--general-log \
 	--skip-log-bin
