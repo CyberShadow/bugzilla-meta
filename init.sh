@@ -115,7 +115,7 @@ then
 		cd $src_dir
 		if $production
 		then
-			./checksetup.pl --cpanm='all notest -oracle -pg -mod_perl' --default-localconfig /dev/stdin <<EOF
+			./checksetup.pl --verbose --cpanm='all notest -oracle -pg -mod_perl' --default-localconfig /dev/stdin <<EOF
 \$answer{'webservergroup'} = '';
 \$answer{'db_driver'} = 'mysql';
 \$answer{'db_host'}   = '';
@@ -133,7 +133,7 @@ then
 \$answer{'NO_PAUSE'} = 1;
 EOF
 		else
-			./checksetup.pl --cpanm='all notest -oracle -pg -mod_perl' --default-localconfig /dev/stdin <<EOF
+			./checksetup.pl --verbose --cpanm='all notest -oracle -pg -mod_perl' --default-localconfig /dev/stdin <<EOF
 \$answer{'webservergroup'} = '';
 \$answer{'db_driver'} = 'mysql';
 \$answer{'db_host'}   = '';
