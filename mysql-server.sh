@@ -8,10 +8,18 @@ echo 'MySQL server - Press Ctrl+\ to stop gracefully'
 echo '=============================================='
 echo ''
 
-mysqld \
-	--datadir=./mysql \
-	--socket=./mysql.sock \
-	--skip-networking \
-	--skip-innodb-read-only-compressed \
-	--general-log \
+args=(
+	mysqld
+	--no-defaults
+	--datadir=./mysql
+	--socket=./mysql.sock
+	--skip-networking
+	--general-log
 	--skip-log-bin
+)
+
+if [[ "$(mysqld --no-defaults --help --verbose)" == *--skip-innodb-read-only-compressed* ]] ; then
+	args+=(--skip-innodb-read-only-compressed)
+fi
+
+exec "${args[@]}"
