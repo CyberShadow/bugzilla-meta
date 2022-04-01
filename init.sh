@@ -42,13 +42,22 @@ case $DISTRIB_ID in
 		;;
 esac
 
+function run_in_background() {
+	if [[ -v DISPLAY ]] && command -v "${TERMINAL-xterm}" &>/dev/null
+	then
+		"${TERMINAL-xterm}" -e "$@" &
+	else
+		screen -dmS "bugzilla:${1##*/}" sh -c "$(printf '%q ' "$@") ; echo \"Done with status \$?, press Enter to exit\" ; read -r"
+	fi
+}
+
 if ! $production
 then
 	# Create MySQL data dir
 	test -d mysql || mysql_install_db --basedir=/usr --datadir=./mysql
 
 	# Start MySQL server (hit Ctrl+\ to quit gracefully)
-	test -e mysql/mysql.sock || ( ${TERMINAL-xterm} -e ./mysql-server.sh & sleep 1 )
+	test -e mysql/mysql.sock || ( run_in_background ./mysql-server.sh && sleep 5 )
 
 	# Create database
 	test -d mysql/"$db_name" || {
@@ -165,7 +174,7 @@ if ! $production
 then
 	(
 		cd "$src_dir"
-		MOJO_LISTEN="http://${listen_addr:-*}:${port}" ${TERMINAL-xterm} -e "./scripts/start_morbo" &
+		MOJO_LISTEN="http://${listen_addr:-*}:${port}" run_in_background ./scripts/start_morbo
 	)
 	sleep 1
 fi
