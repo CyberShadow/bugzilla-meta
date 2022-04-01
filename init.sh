@@ -94,6 +94,16 @@ eval "$(perl -I $src_dir/local/lib/perl5/ -Mlocal::lib=$src_dir/local)"
 # Install checksetup dependencies
 test -d $src_dir/local/lib/perl5/ExtUtils/MakeMaker || cpanm ExtUtils::MakeMaker
 
+# Regenerate cpanfile (as it might be system-dependent)
+if [[ ! -f .configured ]]
+then
+	(
+		cd $src_dir
+		./Makefile.PL
+		make cpanfile
+	)
+fi
+
 # Create initial parameters
 mkdir -p $src_dir/data
 if [[ ! -f $src_dir/data/params ]]
