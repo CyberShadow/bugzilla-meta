@@ -31,14 +31,14 @@ case $DISTRIB_ID in
 			patchutils # "difference between two patches"
 		)
 		missing=($(comm -23 <(printf '%s\n' "${packages[@]}" | sort) <(pacman -Qq | sort)))
-		[[ ${#missing[@]} -eq 0 ]] || sudo pacman -S "${missing[@]}"
+		[[ ${#missing[@]} -eq 0 ]] || { echo 'Installing missing system dependencies...' && sudo pacman -S "${missing[@]}" ; }
 		;;
 	Ubuntu)
 		packages=(
 			cpanminus
 		)
 		missing=($(comm -23 <(printf '%s\n' "${packages[@]}" | sort) <(dpkg-query -W -f='${Package} ${Status}\n' | grep 'install ok installed$' | cut -d ' ' -f 1 | sort -u)))
-		[[ ${#missing[@]} -eq 0 ]] || sudo apt install "${missing[@]}"
+		[[ ${#missing[@]} -eq 0 ]] || { echo 'Installing missing system dependencies...' && sudo apt install "${missing[@]}" ; }
 		;;
 esac
 
@@ -47,6 +47,7 @@ function run_in_background() {
 	then
 		"${TERMINAL-xterm}" -e "$@" &
 	else
+		printf 'Running %q in the background - run "screen -x %q" to attach/diagnose.\n' "${1##*/}" "bugzilla:${1##*/}" 1>&2
 		screen -dmS "bugzilla:${1##*/}" sh -c "$(printf '%q ' "$@") ; echo \"Done with status \$?, press Enter to exit\" ; read -r"
 	fi
 }
