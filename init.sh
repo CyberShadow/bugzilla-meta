@@ -36,6 +36,11 @@ case $DISTRIB_ID in
 	Ubuntu)
 		packages=(
 			cpanminus
+			mariadb-{client,server}
+			pkgconf
+			libgd-dev
+			libssl-dev
+			libcairo2-dev
 		)
 		missing=($(comm -23 <(printf '%s\n' "${packages[@]}" | sort) <(dpkg-query -W -f='${Package} ${Status}\n' | grep 'install ok installed$' | cut -d ' ' -f 1 | sort -u)))
 		[[ ${#missing[@]} -eq 0 ]] || { echo 'Installing missing system dependencies...' && sudo apt install "${missing[@]}" ; }
